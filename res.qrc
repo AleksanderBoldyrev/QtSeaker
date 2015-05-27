@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/files">
+        <file>Down.png</file>
+        <file>HBody.png</file>
+        <file>Left.png</file>
+        <file>Right.png</file>
+        <file>Sand.png</file>
+        <file>Sand16.png</file>
+        <file>SeaPic.png</file>
+        <file>Single.png</file>
+        <file>Up.png</file>
+        <file>VBody.png</file>
+        <file>HitMan.png</file>
+        <file>Miss.png</file>
+    </qresource>
+</RCC>
