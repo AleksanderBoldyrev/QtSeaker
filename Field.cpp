@@ -187,8 +187,7 @@ bool Field::ShipSpaceIsChecked(units x, units y, units l, dir vdir)
 
 unsigned short Field::Aftermath(units px, units py)
 {
-    unsigned short countlen = 0, cs1 = 0, cs2 = 0, ps1 = px, ps2 = py, lencheck = 1, posxs = px, posys = py;
-    bool d = 0;								//*** 1 ~ hor., 0 ~ vert. ***
+    unsigned short countlen = 0, ps1 = px, ps2 = py, lencheck = 1, posxs = px, posys = py;
     this->SetPos(px,py);
     cstate cs = this->GetPosVal();
     if (cs == onesh) countlen = 1;
@@ -260,9 +259,35 @@ unsigned short Field::Aftermath(units px, units py)
         px = posxs; py = posys;
         this->SetPos(px, py);
     }
-    else if (cs == hbody || cs == vbody)						//TODO: 2 bodies (v and h).
+    else if (cs == hbody)
     {
+        bool l = false, r = false;
         px++;
+        this->SetPos(px, py);
+        cs = this->GetPosVal();
+        while (cs == hit && cs != err)
+        {
+            px++;
+            this->SetPos(px, py);
+            cs = this->GetPosVal();
+            lencheck++;
+        }
+        if (cs == err || cs == miss || cs == water) r = true;
+        px = posxs;
+        px--;
+        this->SetPos(px, py);
+        cs = this->GetPosVal();
+        while (cs == hit && cs != err)
+        {
+            px--;
+            this->SetPos(px, py);
+            cs = this->GetPosVal();
+            lencheck++;
+        }
+        if (cs == err || cs == miss || cs == water) l = true;
+        if (l == true && r == true)
+            countlen = lencheck;
+        /*px++;
         this->SetPos(px, py);
         cs1 = this->GetPosVal();
         px--; px--;
@@ -338,7 +363,38 @@ unsigned short Field::Aftermath(units px, units py)
             break;
         }
         if		(lencheck == 4) countlen = 4;
-        else if (lencheck == 3) countlen = 3;
+        else if (lencheck == 3) countlen = 3;*/
+    }
+    else if (cs == vbody)
+    {
+        bool u = false, d = false;
+        py++;
+        this->SetPos(px, py);
+        cs = this->GetPosVal();
+        //lencheck++;
+        while (cs == hit && cs != err)
+        {
+            py++;
+            this->SetPos(px, py);
+            cs = this->GetPosVal();
+            lencheck++;
+        }
+        if (cs == err || cs == miss || cs == water) d = true;
+        py = posys;
+        py--;
+        this->SetPos(px, py);
+        cs = this->GetPosVal();
+        //lencheck++;
+        while (cs == hit && cs != err)
+        {
+            py--;
+            this->SetPos(px, py);
+            cs = this->GetPosVal();
+            lencheck++;
+        }
+        if (cs == err || cs == miss || cs == water) u = true;
+        if (u == true && d == true)
+            countlen = lencheck;
     }
     px = posxs; py = posys;
     this->SetPos(px, py);

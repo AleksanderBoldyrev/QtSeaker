@@ -325,7 +325,7 @@ void AI::MakeMove(Field* fuf)
     bool isturn  = true;
     bool nextship = true;
     //bool hardchoice = true;
-    static bool wasmiss = false;
+    //static bool wasmiss = false;
     unsigned short dir = 0;
     //units x = 0, y = 0;
     bool found = false;
@@ -542,7 +542,7 @@ void AI::MakeMove(Field* fuf)
                 lhY = fuf->posy;
 
                 isshot = true;
-                wasmiss = false;
+                //wasmiss = false;
                 if (clen <= 1)
                 {
                     lhX = -1;
