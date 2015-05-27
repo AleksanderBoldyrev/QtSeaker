@@ -1,6 +1,6 @@
-## AleksanderBoldyrev QtSeaker yearly project
+## AleksanderBoldyrev QtSeaker qualification project
 
-QtSeaker is a "Sea Fight" game application with expressive, elegant syntax. This game provides you the enjoyable leisure time experiense and a bit of fun!
+QtSeaker is a "Sea Battle" game application with expressive, elegant syntax. This game provides you the enjoyable leisure time experiense and a bit of fun!
 
 QtSeaker forms are well designed, yet there is a very intellectual beta hard algorithm of the AI play, and by the way the code was made using the Stroustrup-Camel notation, so all the perfectionists would be pleasured!)
 
