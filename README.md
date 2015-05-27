@@ -12,9 +12,9 @@ Documentation for the framework can be found in the About section in the game.)
 
 Give me 10 roupies, sir, or fix some bugs. Don't be so greedy and lazy...)
 
-## Security Vulnerabilities
+## General Vulnerabilities
 
-If you discover a security vulnerability within QtSeaker, please send an e-mail to me at aleksander.boldyrev@gmail.com. All security vulnerabilities will be promptly addressed.
+If you discover a general vulnerability within QtSeaker, please send an e-mail to me at aleksander.boldyrev@gmail.com. All general vulnerabilities will be promptly fixed.
 
 ### License
 
