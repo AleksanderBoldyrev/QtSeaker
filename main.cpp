@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
     QObject::connect(gl.fuf, SIGNAL(P_StateChanged(int, int, int)), &w, SLOT(P_Changed(int,int,int)));
     QObject::connect(gl.fcf, SIGNAL(C_StateChanged(int, int, int)), &w, SLOT(C_Changed(int,int,int)));
     QObject::connect(gl.art, SIGNAL(P_StateChanged2(int, int, int)), &w, SLOT(P_Changed(int,int,int)));
-    //QObject::connect(gl.art, SIGNAL(C_StateChanged2(int, int, int)), &w, SLOT(C_Changed(int,int,int)));
     QObject::connect(w.cb, SIGNAL(stateChanged(int)), &gl, SLOT(ChangeDirect(int)));
 
 

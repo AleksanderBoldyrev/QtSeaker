@@ -130,3 +130,14 @@ void MainWindow::P_Changed(int x, int y, int state)
         break;
     }
 }
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox* helpWindow = new QMessageBox(this);
+    QIcon* ico = new QIcon("image: url(:/files/Sand16.png);");
+    //*** TODO ***
+    helpWindow->setWindowTitle("Know How!");
+    helpWindow->setWindowIcon(*ico);
+    helpWindow->setText("\t\t#The Rules to play  the Seaker game#\n1> The movement keys: 'w'(~up), 's'(~down), 'a'(~left), 'd'(~right).\n2> To place a ship use a spacebar key.\n3> To choose a ship's length use the numeric keys (1--4).\n4> To shoot at the field use the key 'f'.\n5> To exit the game use the 'x' key.\n6> Created and designed by Alexander Boldyrev, 2015.\nP.S. 7> Don't look into my source code! (Nothing interesting, but harmful).");
+    helpWindow->show();
+}

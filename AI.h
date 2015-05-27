@@ -11,7 +11,8 @@ class AI: public QObject
 {
     Q_OBJECT
     bool			level;
-    bool			isshot  = false;
+    bool			isshot;
+    bool            nextship;
     short           lhX, lhY;
     bool            hDir; // false - horizontal, true - vertical
     QVector<QVector<cstate> > v;

@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QString>
 #include <QCheckBox>
+#include <QMessageBox>
 
 namespace Ui
 {
@@ -33,6 +34,9 @@ public slots:
     void C_Changed(int x, int y, int state);
 public:
     QCheckBox* cb;
+private slots:
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
     QVector<QVector<QLabel*> > p_cells;
