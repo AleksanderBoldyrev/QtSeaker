@@ -142,7 +142,7 @@ void GameLogic::PlayTheGame(int x, int y, bool b)
 void GameLogic::Initz()
 {
     units lv;
-    lv = 1;
+    lv = 0;
     art->Setlevel(lv);
 
     fuf->shipsnum[0] = 20;			//TODO: ships instead of cells.
