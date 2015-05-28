@@ -1,3 +1,6 @@
+//*** The class which was made to collect the information about two fields:
+//    AI field and Player field, and it collects the cell states and other data. ***
+
 #ifndef _FIELD_H
 #define _FIELD_H
 
@@ -42,16 +45,17 @@ public:
                             ~Field					 ();
     units					Width					 ()  { return wcells; }
     units					Height					 ()  { return hcells; }
-    void					Wipe					 ();
-    bool 					SetPos					 (units x, units y);
-    cstate					GetPosVal				 ();
-    unsigned short			Fire					 (units px, units py);
-    bool					CreateShip				 (units x, units y, units l, dir vdir);
-    bool					ShipSpaceIsChecked		 (units x, units y, units l, dir vdir);
-    bool					CenterCellSpaceIsChecked (units cellx, units celly, units le, dir di, units ord);
+    void					Wipe					 ();                                        // Clears the field.
+    bool 					SetPos					 (units x, units y);                        // Feature setting of the position of the cursor which was used for both of the classes,
+                                                                                                // but in the GUI version only for the AI.
+    cstate					GetPosVal				 ();                                        // Gets the cell state of the cell with position posx and posy.
+    unsigned short			Fire					 (units px, units py);                      // The hard algorithm function which is used to change the cell state when the fire signal is caught.
+    bool					CreateShip				 (units x, units y, units l, dir vdir);     // Creates the ship exactly on the player field (For the AI place there is another function in the AI class).
+    bool					ShipSpaceIsChecked		 (units x, units y, units l, dir vdir);     // Defines, whether the ship is placed correctly or not.
+    bool					CenterCellSpaceIsChecked (units cellx, units celly, units le, dir di, units ord);   // An extra function which checks the cell surroundings for the previous function.
 signals:
-    void                    P_StateChanged(int x, int y, int state);
-    void                    C_StateChanged(int x, int y, int state);
+    void                    P_StateChanged(int x, int y, int state);                        // The signal for the player field changes to change the field promptly.
+    void                    C_StateChanged(int x, int y, int state);                        // -||- for the computer.
 };
 
 #endif

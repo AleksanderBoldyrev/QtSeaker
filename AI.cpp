@@ -31,6 +31,7 @@ void AI::Setlevel(bool lv)
     level = lv;
 }
 
+// Similar to the PlaceShips function (in the Field )
 void AI::PlaceShipsAI(Field* fcf)
 {
     srand((unsigned)time(0));
@@ -205,6 +206,7 @@ void AI::PlaceShipsAI(Field* fcf)
     }
 }
 
+// Checks whether the exact cell is a part of the function, or not.
 bool AI::PieceOfShip(cstate s, Field* fuf)
 {
     bool isp = false;
@@ -285,6 +287,7 @@ bool AI::CheckNeighbours(int x, int y)
     return true;
 }
 
+// The similar to the Field class MakeMove function.
 void AI::MakeMove(Field* fuf)
 {
     unsigned short clen;
@@ -566,9 +569,8 @@ void AI::MakeMove(Field* fuf)
             {
                 emit P_StateChanged2(fuf->posx, fuf->posy, fuf->miss);
                 v[fuf->posx][fuf->posy] = 1;
-                //if (isshot) isshot = false;
                 isturn = false;
-                if (clen > 0) isshot = false;
+                //if (clen > 0) isshot = false;                     //TODO: isshot check
                 if (!hDir)
                 {
                     if (fuf->posx>lhX && lhX == 0)

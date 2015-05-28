@@ -1,3 +1,5 @@
+//*** An extra player name call class. ***
+
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
@@ -11,8 +13,6 @@ public:
             ~Player();
     char*	GetName();
     void	SetName(char* name);
-    void	UpdateStats();
-    void	ClearStats();
 };
 
 #endif

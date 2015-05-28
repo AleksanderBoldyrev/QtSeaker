@@ -1,3 +1,5 @@
+//*** The Seaker game made with the Qt programm. Boldyrev Alexander 13501/3. ***
+
 #include "GameLogic.h"
 
 int main(int argc, char *argv[])

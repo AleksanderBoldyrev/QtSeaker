@@ -17,6 +17,7 @@ GameLogic::~GameLogic()
     delete fcf;
 }
 
+// Slot for the QCheckBox call.
 void GameLogic::ChangeDirect(int s)
 {
     if (s == Qt::Checked)
@@ -25,6 +26,7 @@ void GameLogic::ChangeDirect(int s)
         dir = true;
 }
 
+// This function implements the ship arrangement.
 void GameLogic::PlaceShips(int x, int y, bool b)
 {
     switch (g_state)
@@ -83,6 +85,7 @@ void GameLogic::PlaceShips(int x, int y, bool b)
     }
 }
 
+// The player's facility to shoot at some computer field cell.
 void GameLogic::MakeMove(int x, int y, bool b)
 {
     switch (g_state)
@@ -96,6 +99,7 @@ void GameLogic::MakeMove(int x, int y, bool b)
     }
 }
 
+// The game states processing and auxiliary calls for other main game logic functions.
 void GameLogic::PlayTheGame(int x, int y, bool b)
 {
     cstate s = fcf->GetPosVal();
@@ -139,10 +143,11 @@ void GameLogic::PlayTheGame(int x, int y, bool b)
     }
 }
 
+// The function which inits all the inner data.
 void GameLogic::Initz()
 {
     units lv;
-    lv = 1;
+    lv = 0;
     art->Setlevel(lv);
 
     fuf->shipsnum[0] = 20;			//TODO: ships instead of cells.

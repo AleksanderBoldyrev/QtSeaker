@@ -40,7 +40,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+// Function processing the mouse interactions.
 void MainWindow::mousePressEvent(QMouseEvent *ev)
 {
     int xx = ev->x(), yy = ev->y() - 40;
@@ -70,11 +70,13 @@ void MainWindow::mousePressEvent(QMouseEvent *ev)
     }
 }
 
+// Primitive output to the imitated console.
 void MainWindow::Log(QString s)
 {
     ui->console->appendPlainText(s);
 }
 
+// This function is called when the field state has changed.
 void MainWindow::C_Changed(int x, int y, int state)
 {
     switch(state)
@@ -94,6 +96,7 @@ void MainWindow::C_Changed(int x, int y, int state)
     }
 }
 
+// This function is called when the field state has changed.
 void MainWindow::P_Changed(int x, int y, int state)
 {
     switch(state)
@@ -131,6 +134,7 @@ void MainWindow::P_Changed(int x, int y, int state)
     }
 }
 
+// This is the function made for the About section widget in help.
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox* helpWindow = new QMessageBox(this);
@@ -138,6 +142,6 @@ void MainWindow::on_actionAbout_triggered()
     //*** TODO ***
     helpWindow->setWindowTitle("Know How!");
     helpWindow->setWindowIcon(*ico);
-    helpWindow->setText("\t\t#The Rules to play  the Seaker game#\n1> The movement keys: 'w'(~up), 's'(~down), 'a'(~left), 'd'(~right).\n2> To place a ship use a spacebar key.\n3> To choose a ship's length use the numeric keys (1--4).\n4> To shoot at the field use the key 'f'.\n5> To exit the game use the 'x' key.\n6> Created and designed by Alexander Boldyrev, 2015.\nP.S. 7> Don't look into my source code! (Nothing interesting, but harmful).");
+    helpWindow->setText("\t#The Rules to play  the Seaker game#\n1> The movement keys: 'w'(~up), 's'(~down), 'a'(~left), 'd'(~right).\n2> To place a ship use a spacebar key.\n3> To choose a ship's length use the numeric keys (1--4).\n4> To shoot at the field use the key 'f'.\n5> To exit the game use the 'x' key.\n6> Created and designed by Alexander Boldyrev, 2015.\nP.S. 7> Don't look into my source code! (Nothing interesting, but harmful).");
     helpWindow->show();
 }

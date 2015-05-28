@@ -19,13 +19,3 @@ char* Player::GetName()
 {
     return name;
 }
-
-void Player::UpdateStats()
-{
-
-}
-
-void Player::ClearStats()
-{
-
-}

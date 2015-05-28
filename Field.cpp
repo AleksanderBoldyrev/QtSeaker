@@ -1,5 +1,6 @@
 #include "Field.h"
 
+// Clears the field.
 Field::Field(bool who, units sx, units sy)
 {
     owner = who;
@@ -21,6 +22,7 @@ Field::~Field()
     cells.erase(cells.begin(), cells.end());
 }
 
+// Clears the field.
 void Field::Wipe()
 {
     for (units i = 0; i < wc; i++) for (units j = 0; j < hc; j++) cells[i][j] = water;
@@ -39,6 +41,8 @@ void Field::SetCell(units w, units h, cstate s)
     else emit C_StateChanged(w, h, s);
 }
 
+// Feature setting of the position of the cursor which was used for both of the classes,
+// but in the GUI version only for the AI.
 bool Field::SetPos(units x, units y)
 {
     if (y >= hc || x >= wc) return false;
@@ -47,11 +51,13 @@ bool Field::SetPos(units x, units y)
     return true;
 }
 
+// Gets the cell state of the cell with position posx and posy.
 cstate Field::GetPosVal()
 {
     return cells[posx][posy];
 }
 
+// Creates the ship exactly on the player field (For the AI place there is another function in the AI class).
 bool Field::CreateShip(units x, units y, units l, dir vdir)
 {
     bool isplaced = false;
@@ -85,6 +91,7 @@ bool Field::CreateShip(units x, units y, units l, dir vdir)
     return isplaced;
 }
 
+// An extra function which checks the cell surroundings for the previous function.
 bool Field::CenterCellSpaceIsChecked(units cellx, units celly, units le, dir di, units ord)
 {
     bool b = true;
@@ -144,6 +151,7 @@ bool Field::CenterCellSpaceIsChecked(units cellx, units celly, units le, dir di,
     return b;
 }
 
+// Defines, whether the ship is placed correctly or not.
 bool Field::ShipSpaceIsChecked(units x, units y, units l, dir vdir)
 {
     bool b = true;
@@ -324,6 +332,7 @@ unsigned short Field::Aftermath(units px, units py)
     return countlen;
 }
 
+// The hard algorithm function which is used to change the cell state when the fire signal is caught.
 unsigned short Field::Fire(units px, units py)
 {
     unsigned short count = 0;
